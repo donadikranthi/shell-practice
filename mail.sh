@@ -11,9 +11,9 @@ TO_TEAM=$6
 FINAL_BODY=$(sed -e "s/TO_TEAM/$TO_TEAM/g" -e "s/ALERT_TYPE/$ALERT_TYPE/g" -e "s/IP_ADDRESS/$IP_ADDRESS/g" -e "s/MESSAGE/$FORMATTED_BODY/g" template.html)
 
 {
-echo "To: $TO_ADDRESS"
-echo "Subject: $SUBJECT"
+echo "To: donadikranthikumar@gmail.com"
+echo "Subject: =Mail Alert from JoinDevops"
 echo "Content-Type: text/html"
 echo ""
-echo "$FINAL_BODY"
-} | msmtp "$TO_ADDRESS"
+echo "This is a test mail""
+} | msmtp "donadikranthikumar@gmail.com"
