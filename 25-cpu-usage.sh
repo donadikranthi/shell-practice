@@ -6,6 +6,9 @@ DISK_THRESHOLD=2
 while IFS= read -r line
 
 do
-    echo "ine:$line"
-    
+    usage=$(echo $line | awk '{print $6}' | cut -d "%" -f1)
+    PARTITION=$(echo $line | awk '{print $7}')
+    if [ $usage -ge $DISK_THRESHOLD ]; then
+        echo "High Usage on $PARTITION: $usage"
+    fi  
 done <<< $DISK_USAGE
